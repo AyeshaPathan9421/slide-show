@@ -41,9 +41,11 @@
 <body>
     <div class="container">
 <img src="img/background-img-1.jpg" class="slide" id="slide"/>
+
 <img src="img/previous-icon.png" class=" ico-action ico-prev" onclick="previous()"/>
 <img src="img/next-icon.png" class=" ico-action ico-next" onclick="next()"/>
     </div>
+
     <script>
         const images= ["img/background-img-1.jpg","img/background-img-2.jpg","img/background-img-3.jpg","img/background-img-4.jpg","img/cute-ducks-living-nature.jpg","img/flower-1.jpg","img/istockphoto.jpg","img/photorealistic-view-rooster-with-beak-feathers.jpg","img/tiger-rock-jungle.jpg"];
 
@@ -55,13 +57,24 @@
         index++;
         }
         else{
-            index=0;
+            index = 0;
         }
 
-        function prev(){
-        index--;
-        slide.src=images[index]
+        slide.src = images[index]
+    }
+
+        function previous(){
+            if(index >0){
+            index--;
         }
+        else{
+            index = images.length -1;
+        }
+
+        slide.src = images[index]
+    }
+
+    setInterval(next,2000);
     </script>
 </body>
 </html>
