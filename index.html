@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slideshow</title>
+    <style>
+        .container{
+            width: fit-content;
+            margin: 50px auto;
+            position: relative;
+        }
+        .slide{
+            height: 400px;
+            width: 600px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .ico-action{
+            height: 80px;
+            position: absolute;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+        .ico-prev{
+            left: 0;
+            top: 40%;
+        }
+        .ico-prev:hover{
+            transform:scale(0.8) translateX(-10px);
+        }
+        .ico-next{
+            right: 0;
+            top: 40%;
+        }
+        .ico-next:hover{
+            transform:scale(0.8) translateX(10px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+<img src="img/background-img-1.jpg" class="slide" id="slide"/>
+<img src="img/previous-icon.png" class=" ico-action ico-prev" onclick="previous()"/>
+<img src="img/next-icon.png" class=" ico-action ico-next" onclick="next()"/>
+    </div>
+    <script>
+        const images= ["img/background-img-1.jpg","img/background-img-2.jpg","img/background-img-3.jpg","img/background-img-4.jpg","img/cute-ducks-living-nature.jpg","img/flower-1.jpg","img/istockphoto.jpg","img/photorealistic-view-rooster-with-beak-feathers.jpg","img/tiger-rock-jungle.jpg"];
+
+        let index=0;
+        const slide = document.getElementById('slide');
+
+        function next(){
+            if(index < images.length -1){
+        index++;
+        }
+        else{
+            index=0;
+        }
+
+        slide.src=images[index]
+        }
+    </script>
+</body>
+</html>
